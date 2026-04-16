@@ -1,39 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. スクロールアニメーション（Reveal効果）
-  const revealElements = document.querySelectorAll('section, .work-card');
-  
-  // 要素に一括でクラスを適用
-  revealElements.forEach(el => el.classList.add('reveal'));
+    // 1. スクロール監視（スクロールに合わせて要素を表示）
+    const observerOptions = {
+        threshold: 0.2 // 20%見えたら発火
+    };
 
-  const revealOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.85;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
 
-    revealElements.forEach(el => {
-      const elTop = el.getBoundingClientRect().top;
-      if (elTop < triggerBottom) {
-        el.classList.add('active');
-      }
+    // 全ての.revealクラスを監視対象にする
+    const targets = document.querySelectorAll('.reveal');
+    targets.forEach(target => observer.observe(target));
+
+    // 2. ヘッダーのスクロールエフェクト
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.style.padding = '20px 20px';
+            header.style.background = 'rgba(17, 17, 17, 0.95)';
+        } else {
+            header.style.padding = '40px 20px';
+            header.style.background = '#111111';
+        }
     });
-  };
-
-  // 2. ヘッダーのスクロールエフェクト
-  const header = document.querySelector('header');
-  const shrinkHeader = () => {
-    if (window.scrollY > 50) {
-      header.style.padding = '10px 20px';
-      header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.2)';
-    } else {
-      header.style.padding = '30px 20px';
-      header.style.boxShadow = 'none';
-    }
-  };
-
-  // イベントリスナーの登録
-  window.addEventListener('scroll', () => {
-    revealOnScroll();
-    shrinkHeader();
-  });
-
-  // 初回実行
-  revealOnScroll();
 });
