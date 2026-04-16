@@ -1,51 +1,61 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-  <h1>My Portfolio</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#works">Works</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#works">Works</a>
+        </nav>
+    </header>
 
-<div class="container">
+    <div class="container">
+        <section id="about" class="reveal">
+            <h2>About Me</h2>
+            <div class="about">
+                <p>シンプルで効率的なシステム構築を信条とする開発者です。バックエンドのロジックからフロントエンドの視覚効果まで、一貫したクオリティを追求しています。</p>
+            </div>
+        </section>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>フロントエンドエンジニア。実務経験4年。</p>
-  </section>
+        <section id="skills" class="reveal">
+            <h2>Skills</h2>
+            <div class="skills">
+                <span>JavaScript</span>
+                <span>CSS3 / HTML5</span>
+                <span>Node.js</span>
+                <span>Git / GitHub</span>
+            </div>
+        </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-  </section>
-
-  <section id="works">
-    <h2>Works</h2>
-    <div class="work-card">
-      <h3>LPサイト</h3>
-      <p>レスポンシブ対応</p>
+        <section id="works" class="reveal">
+            <h2>Works</h2>
+            <div class="works">
+                <div class="work-card">
+                    <h3>Project 01</h3>
+                    <p>API連携を中心としたウェブアプリケーション。データの整合性と高速なレスポンスを重視しました。</p>
+                    <a href="#">View Detail →</a>
+                </div>
+                <div class="work-card">
+                    <h3>Project 02</h3>
+                    <p>ユーザー体験を向上させるための、マイクロインタラクションを多用したUIデザイン。 </p>
+                    <a href="#">View Detail →</a>
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
 
-</div>
+    <footer>
+        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+    </footer>
 
-<footer>
-  <p>© 2026 Portfolio</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
