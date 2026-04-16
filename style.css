@@ -1,79 +1,106 @@
-/* 全体設定の更新 */
+/* 変数定義：後で色を一括変更しやすくします */
 :root {
-  --primary-color: #2563eb; /* 鮮やかなブルー */
-  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --text-main: #1e293b;
+    --primary: #2563eb;
+    --dark: #111111;
+    --gray: #f5f5f5;
+    --text: #333333;
+    --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  color: var(--text-main);
-  background: var(--bg-gradient);
-  background-attachment: fixed;
-  overflow-x: hidden;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.8;
+    background: var(--gray);
+    color: var(--text);
+    scroll-behavior: smooth;
 }
 
 header {
-  background: rgba(17, 17, 17, 0.95);
-  backdrop-filter: blur(10px); /* 背景をぼかすトレンド表現 */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 30px 20px;
+    background: var(--dark);
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: var(--transition);
 }
 
-/* スキルバッジの装飾 */
+header h1 { font-size: 2.2rem; letter-spacing: 2px; }
+
+nav { margin-top: 15px; }
+nav a {
+    color: #ccc;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+nav a:hover { color: var(--primary); }
+
+.container { max-width: 1000px; margin: 60px auto; padding: 0 25px; }
+
+section { margin-bottom: 80px; }
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* スキルバッジ */
 .skills span {
-  background: var(--primary-color);
-  transition: all 0.3s ease;
-  cursor: default;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+    display: inline-block;
+    background: var(--dark);
+    color: #fff;
+    padding: 8px 18px;
+    margin: 6px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    transition: var(--transition);
 }
-
 .skills span:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    background: var(--primary);
+    transform: translateY(-3px);
 }
 
-/* ワークカードの洗練 */
+/* ワークスカード */
+.works {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
 .work-card {
-  border: 1px solid rgba(0,0,0,0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+.work-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-.work-card a {
-  font-weight: bold;
-  position: relative;
-  transition: color 0.3s;
+footer {
+    background: var(--dark);
+    color: #777;
+    padding: 30px;
+    text-align: center;
 }
 
-.work-card a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -2px;
-  left: 0;
-  background-color: var(--primary-color);
-  transition: width 0.3s;
-}
-
-.work-card a:hover::after {
-  width: 100%;
-}
-
-/* アニメーション用の初期状態クラス */
+/* アニメーション用初期設定 */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition);
 }
-
 .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
