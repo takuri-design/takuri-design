@@ -1,61 +1,140 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; background: #f5f5f5; }
+    header { background: #111; color: #fff; padding: 20px; text-align: center; }
+    header h1 { font-size: 2rem; }
+    nav { margin-top: 10px; }
+    nav a { color: #fff; margin: 0 10px; text-decoration: none; }
+
+    .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+    section { margin-bottom: 60px; }
+    h2 { margin-bottom: 20px; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+
+    .about p { font-size: 1.1rem; }
+
+    .skills span {
+      display: inline-block;
+      background: #333;
+      color: #fff;
+      padding: 5px 10px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    .works {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .work-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .work-card h3 { margin-bottom: 10px; }
+
+    .work-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #111;
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>My Portfolio</h1>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#works">Works</a>
-        </nav>
-    </header>
+<header>
+  <h1>My Portfolio</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#works">Works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-    <div class="container">
-        <section id="about" class="reveal">
-            <h2>About Me</h2>
-            <div class="about">
-                <p>シンプルで効率的なシステム構築を信条とする開発者です。バックエンドのロジックからフロントエンドの視覚効果まで、一貫したクオリティを追求しています。</p>
-            </div>
-        </section>
+<div class="container">
 
-        <section id="skills" class="reveal">
-            <h2>Skills</h2>
-            <div class="skills">
-                <span>JavaScript</span>
-                <span>CSS3 / HTML5</span>
-                <span>Node.js</span>
-                <span>Git / GitHub</span>
-            </div>
-        </section>
+  <section id="about" class="about">
+    <h2>About</h2>
+    <p>
+      フロントエンドエンジニア。実務経験4年。<br>
+      HTML / CSS / JavaScript を用いたWeb制作が得意です。<br>
+      業務システム開発経験もあり、ロジック面にも強みがあります。
+    </p>
+  </section>
 
-        <section id="works" class="reveal">
-            <h2>Works</h2>
-            <div class="works">
-                <div class="work-card">
-                    <h3>Project 01</h3>
-                    <p>API連携を中心としたウェブアプリケーション。データの整合性と高速なレスポンスを重視しました。</p>
-                    <a href="#">View Detail →</a>
-                </div>
-                <div class="work-card">
-                    <h3>Project 02</h3>
-                    <p>ユーザー体験を向上させるための、マイクロインタラクションを多用したUIデザイン。 </p>
-                    <a href="#">View Detail →</a>
-                </div>
-            </div>
-        </section>
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Responsive</span>
+    <span>Git</span>
+  </section>
+
+  <section id="works">
+    <h2>Works</h2>
+    <div class="works">
+
+      <div class="work-card">
+        <h3>LPサイト</h3>
+        <p>レスポンシブ対応のランディングページ</p>
+        <a href="#" target="_blank">View</a>
+      </div>
+
+      <div class="work-card">
+        <h3>コーポレートサイト</h3>
+        <p>シンプルな企業サイト</p>
+        <a href="#" target="_blank">View</a>
+      </div>
+
+      <div class="work-card">
+        <h3>JSアニメーション</h3>
+        <p>スライダー・動きのあるUI</p>
+        <a href="#" target="_blank">View</a>
+      </div>
+
     </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-    </footer>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>お問い合わせは以下までお願いします。</p>
+    <p>Email: example@gmail.com</p>
+  </section>
 
-    <script src="js/script.js"></script>
+</div>
+
+<footer>
+  <p>© 2026 Portfolio</p>
+</footer>
+
 </body>
 </html>
